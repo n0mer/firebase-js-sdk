@@ -22,14 +22,11 @@ import { AuthErrorCode } from '../errors';
 import { assert } from '../util/assert';
 import { AuthCore } from '../../model/auth'; 
 
-export function setActionCodeSettingsOnRequest_(
+export function _setActionCodeSettingsOnRequest(
   auth: AuthCore,
   request: GetOobCodeRequest,
   actionCodeSettings: ActionCodeSettings
 ): void {
-  assert(typeof actionCodeSettings.url !== 'undefined', AuthErrorCode.MISSING_CONTINUE_URI, {
-    appName: auth.name
-  });
   assert(actionCodeSettings.url.length > 0, AuthErrorCode.INVALID_CONTINUE_URI, {
     appName: auth.name
   });
